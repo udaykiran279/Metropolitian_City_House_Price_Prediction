@@ -1,1 +1,39 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet"  type='text/css' media='screen' href="/static/css/stylingcss.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model deployment</title>
+</head>
+<body>
+  <img src="/static/images/mychildhoodpic.png" alt="" class="userpic">
+  
+  <div class="container">
+    
+    <div class="title"><b>METROPOLITAN CITIES</b></div>
+    <div class="content">
+      <form action="{{ url_for('home1')}}" method="POST">
+        <div class="user-details1">
+          <br><br>
+          <center><div class="input-box">
+            <span class="details" style="width:80%;"><b>Select City</b></span>
+            <select class="det" id="cities" name="cities" required="1" onchange="load_car_models(this.id,'locations')">
+              {% for city in cities %}
+                <option value="{{ city }}">{{ city }}</option>
+              {% endfor %}
+            </select>        
+          </div>
+          <br>
+          <center><div class="button">
+            <input type="submit" value="Search Locations"><br><br>
+          </div></center>
+        <br>
+      </div>
+      </center>
+    </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet"  type='text/css' media='screen' href="/static/css/stylingcss.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model deployment</title>
+</head>
+<body>
+  <img src="/static/images/mychildhoodpic.png" alt="" class="userpic">
+  
+  <div class="container">
+    
+    <div class="title"><marquee><b>METROPOLITAN CITIES HOUSE PRICE PREDICTION</b></marquee></div>
+    <div class="content">
+      <form action="{{ url_for('predict')}}" method="POST">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details"><b>Selected City</b></span>
+            <select class="det" id="cities" name="cities" required="1">
+                <option value="{{ city }}">{{ city }}</option>
+            </select>        
+          </div>
+          <div class="input-box">
+            <span class="details"><b>Select location</b></span>
+            <select class="det" id="location" name="location" required="1">
+                {% for location in locas %}
+                <option value="{{ location }}">{{ location }}</option>
+                {% endfor %}
+            </select>        
+          </div>
+          <div class="input-box">
+            <span class="details"><b>Area of Square Feet Required</b></span>
+            <input type="text" name="sqft" placeholder="For example 1500,2000,10000 etc.." required>
+          </div>
+          <div class="input-box">
+            <span class="details"><b>Enter size of BHK</b></span>
+            <input type="text" name="bed" placeholder="For example 2,3,4..." required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details"><b>Do you need Parking Space</b></span>
+            <select list="bro" type="text" class="det" name="bath" placeholder="Enter" required>
+
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+        <center><div class="button">
+          <input type="submit" value="Predict"><br><br>
+        </div></center>
+        <br>
+      </div>
+    </div>
+    </form>
+  </div>
+</body>
+</html>
