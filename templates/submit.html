@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table, th, td {
+          border: 8px solid rgb(31, 150, 197);
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 6px;
+        }
+        @media Print {
+            .content *{
+                visibility: visible;
+            }
+            body, .button * {
+                visibility: hidden;
+            }
+            
+        }
+        button {
+            border: 8px solid #9b59b6;
+            padding:10px;
+        }
+        
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet"  type='text/css' media='screen' href="{{ url_for('static', filename='css/stylingcss.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Cost</title>
+</head>
+<body>
+    <img src="/static/images/mychildhoodpic.png" alt="" class="userpic">
+    <div class="container">
+        <div class="content">
+            <center><h4 id="logo">UV CREATIONS</h4></center><br>
+            {{ date_time }}<BR><BR>
+            <CENTER><h2>BANGALORE HOUSE PRICE</h2></CENTER><BR>
+            <div class="user-details">
+                <div class="input-box">
+                  <center>
+                    <h3>INVOICE</h3><br>
+                    <br>
+                    
+                    <table border="2">
+                        <tr>
+                            <th padd>REQUIREMENTS</th>
+                            <th>QUANTITY</th>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <td>{{ cit }}</td>
+                        </tr>
+                        <tr>
+                            <td>Location</td>
+                            <td>{{ locs }}</td>
+                        </tr>
+                        <tr>
+                            <td>Area in sqft</td>
+                            <td>{{ sqft }}</td>
+                        </tr>
+                        <tr>
+                            <td>Needed BHK</td>
+                            <td>{{ bhk }}</td>
+                        </tr>
+                        <tr>
+                            <td>Parking Space</td>
+                            <td>{{ capar }}</td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td>PREDICTED COST</td>
+                            <td>{{ pred_val }}</td>
+                        </tr>
+
+                    </table>
+                    <br><br>
+                    <div class="button">
+                        <button onclick="window.print()">Print Invoice<br><br>
+                    </div>
+                    
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
