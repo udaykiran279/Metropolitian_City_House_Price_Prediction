@@ -1,26 +1,31 @@
 from flask import Flask,render_template,request,redirect
-from flask_cors import CORS,cross_origin
 import pandas as pd
 import pickle
 import datetime
 
 app=Flask(__name__)
-cors=CORS(app)
 df=pd.read_csv("Metro Areas.csv")
 model=pickle.load(open("model.pkl","rb"))
 
 
-@app.route("/",methods=["GET","POST"])
+@app.route("/")
 def home():
     cities=sorted(df["City"].unique()) 
 
-    locations=sorted(df["Location"].unique())
+    #locations=sorted(df["Location"].unique())
 
-    return render_template("index.html",cities=cities,locations=locations)
+    return render_template("index.html",cities=cities)
 
+@app.route("/_home1",methods=["GET","POST"])
+def home1():
+
+    cityval=[i for i in request.form.values()]
+    print(cityval)
+    locas=list(sorted(df[df["City"]==cityval[0]]["Location"].unique()))
+    print(locas)
+    return render_template("index1.html",locas=locas,city=cityval[0])
 
 @app.route("/predict",methods=["GET","POST"])
-@cross_origin()
 
 def predict():
     inputs=[i for i in request.form.values()]
@@ -44,10 +49,13 @@ def predict():
         inputs[4]="No"
     now=datetime.datetime.now()
 
-    return render_template("submit.html",pred_val="₹ "+str(int(abs(k))),cit=inputs[0],locs=inputs[1],sqft=inputs[2],bhk=inputs[3],capar=inputs[4])
+    return render_template("submit.html",pred_val="₹ "+str(int(abs(k))),cit=inputs[0],locs=inputs[1],sqft=inputs[2],bhk=inputs[3],capar=inputs[4],now=now)
 
 
 if __name__=='__main__':
     app.run(debug=True)
+
+
+
 
 
