@@ -50,6 +50,11 @@ body{
   background-repeat: no-repeat;
   display: flex;
 }
+.det{
+  font-size: medium;
+  width: 275px;
+  height: 200hv;
+}
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
   margin: 0;
@@ -98,7 +103,7 @@ form .input-box span.details{
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
-  font-size: 22px;
+  font-size: 20px;
 }
 .user-details .input-box input{
   height: 45px;
@@ -154,7 +159,7 @@ form .input-box span.details{
  }
  form .button input{
    height: 100%;
-   width: 100%;
+   width: 40%;
    border-radius: 5px;
    border: none;
    color: #fff;
