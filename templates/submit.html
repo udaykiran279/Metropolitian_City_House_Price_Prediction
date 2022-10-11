@@ -27,15 +27,16 @@
     </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet"  type='text/css' media='screen' href="static/cssfile/stylingcss.css">
+    <link rel="stylesheet"  type='text/css' media='screen' href="{{ url_for('static', filename='css/stylingcss.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House Cost</title>
 </head>
 <body>
+    <img src="/static/images/mychildhoodpic.png" alt="" class="userpic">
     <div class="container">
         <div class="content">
             <center><h4 id="logo">UV CREATIONS</h4></center><br>
-            {{ now }}<BR><BR>
+            {{ date_time }}<BR><BR>
             <CENTER><h2>METROPOLITAN CITY HOUSE PRICE</h2></CENTER><BR><BR>
             <div class="user-details">
                 <div class="input-box">
@@ -75,6 +76,14 @@
 
                     </table>
                     <br><br>
+                    <center><div id="map" class="button">
+                        <button><a href={{ viewmap }}>View Location</a></button>
+                      </div></center>
+                    <br>
+                    <div class="button">
+                        <h2>Or</h2>
+                    </div>
+                    <br>
                     <div class="button">
                         <button onclick="window.print()">Print Invoice<br><br>
                     </div>
