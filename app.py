@@ -48,12 +48,20 @@ def predict():
     else:
         inputs[4]="No"
     now=datetime.datetime.now()
+    url="https://www.google.com/maps/place/"
+    sp="+".join(inputs[1].split())
+    print(sp)
+    viewmap=url+sp
+    print(viewmap)
 
-    return render_template("submit.html",pred_val="₹ "+str(int(abs(k))),cit=inputs[0],locs=inputs[1],sqft=inputs[2],bhk=inputs[3],capar=inputs[4],now=now)
+    return render_template("submit.html",viewmap=viewmap,pred_val="₹ "+str(int(abs(k))),cit=inputs[0],locs=inputs[1],sqft=inputs[2],bhk=inputs[3],capar=inputs[4])
 
 
 if __name__=='__main__':
     app.run(debug=True)
+
+
+
 
 
 
